@@ -12,7 +12,7 @@ public class Year2016 {
 		
 		//2016년
 		int a = 5;
-		int b = 24;
+		int b = 25;
 		System.out.println(new Year2016().solution(a, b));
 		
 	}
