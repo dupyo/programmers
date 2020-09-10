@@ -1,5 +1,6 @@
 package level1;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -7,23 +8,23 @@ public class FailRate {
 
 	public static void main(String[] args) {
 		//실패율
-		while(true) {
+		/*while(true) {
 			Random random1 = new Random();
 			int N=random1.nextInt(500);
-			int[] stages = new int[random1.nextInt(30)+1];
+			int[] stages = new int[random1.nextInt(10000)+1];
 			Random random = new Random();
 			for (int i=0; i < stages.length; i++) {
-				stages[i] =  (random.nextInt(N+1)+1);	
+				stages[i] = random.nextInt(N+1)+1;	
 			}
 			if(!Arrays.toString(new FailRate().solution(N, stages)).equals(Arrays.toString(solution1(N, stages)))) {
 				System.out.println("stages : " + Arrays.toString(stages));
 				break;
 			}
-		}
-		/*int N=474;
+		}*/
+		int N=6;
 		int [] stages = {2, 2, 3, 5, 6, 6, 6, 6};
 		System.out.println("jinsu : " + Arrays.toString(solution1(N, stages)));
-		System.out.println("dupyo : " + Arrays.toString(new FailRate().solution(N, stages)));*/
+		System.out.println("dupyo : " + Arrays.toString(new FailRate().solution(N, stages)));
 	}
 	///////////////////////////////////////////////////////////
 	   public static int[] solution1(int N, int[] stages) {
@@ -95,35 +96,54 @@ public class FailRate {
 		double [] answerD = new double [N]; //실패율 높은 스테이지 순으로 정렬할 배열. 
 		int [] answer = new int [N]; //실패율 높은 스테이지 순으로 정렬할 배열. 
 		Arrays.sort(stages);
-		//System.out.println("sort : " + Arrays.toString(stages));
-		//System.out.println();
 		int i=0, cnt=1; //스테이지 번호, 실패한 스테이지 개수
+		
 		while(i < stages.length) {
 			if(stages[i] == N+1) {
 				break;
 			} else if((i+cnt) < stages.length && stages[i] == stages[i+cnt]) {
 				cnt++;
 			} else {
+				System.out.println("stages["+i+"] : " +stages[i] );
+				System.out.printf("(double)stages["+i+"] :  %2.20f \n",(double)stages[i] );
+				System.out.printf("(double)stages["+i+"]/1000.0 :  %2.20f\n",(double)stages[i]/1000.0 );
+				System.out.println("(stages["+i+"])/1000.0] : " +(stages[i])/1000.0 );
+				System.out.println("(1.0-((double)cnt/(double)(stages.length-"+i+")))*1000000000.0) : " +(1.0-((double)cnt/(double)(stages.length-i)))*1000000000.0);
+				System.out.println("(double)(stages["+i+"])/1000.0] : " +(double)(stages[i])/1000.0 );
 				answerD[stages[i]-1]=(long)((1.0-((double)cnt/(double)(stages.length-i)))*1000000000.0)+((double)(stages[i])/1000.0);
+				
+				
+				System.out.println("answerD[stages["+i+"]-1] : " +answerD[stages[i]-1]);
+				System.out.println("*******1 " + ((answerD[stages[i]-1]/1000.0)));
+				System.out.println("*******2 " + (((int)(answerD[stages[i]-1])/1000.0000)));
+				System.out.println("*******3 " + ( answerD[stages[i]-1] - (int)( answerD[stages[i]-1] ) ) );
+				double d1 = answerD[stages[i]-1]/1000.0;
+				double d2 = (int)(answerD[stages[i]-1]/1000.0);
+				
+				BigDecimal bd1 = new BigDecimal(d1);
+				BigDecimal bd2 = new BigDecimal(d2);
+				System.out.println("bd1 : " + bd1);
+				System.out.println("bd2 : " + bd2);
+				System.out.println(bd1.subtract(bd2));
+				System.out.println("\n\n");
 				i+=cnt;
 				cnt=1;
 			}
 		}
+		
+		
 		for(int j=0; j < N; j++) {
-			if(answerD[j] == 0)
+			if(answerD[j] == 0.0)
 				answerD[j]=1000000000.0+((double)(j+1)/1000.0);
 		}
-		//System.out.println("answerD1 : " + Arrays.toString(answerD));
 		Arrays.sort(answerD);
-		//System.out.println("answerD2 : " + Arrays.toString(answerD));
-		//System.out.println(Math.round((answerD[0]-(long)answerD[0])*1000.0));
 		for(int j=0; j < N; j++) {
-			//System.out.println("round"+j+" : " + Math.round((answerD[j]-(int)answerD[j])*1000.0));
-			//System.out.println(j+"th : " + ((answerD[j]-(int)answerD[j])));
-			//System.out.println();
+			System.out.print(", " + ((answerD[j]-(int)answerD[j])));
+			//System.out.print(", " + (int)Math.ceil((answerD[j]-(int)answerD[j])*1000.0));
 			answerD[j]=Math.round((answerD[j]-(int)answerD[j])*1000.0);
 			answer[j]=(int)answerD[j];
 		}
+		System.out.println();
 		return answer;
 	}
 
