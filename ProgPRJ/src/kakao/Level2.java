@@ -8,7 +8,7 @@ public class Level2 {
 	public static void main(String[] args) {
 		String [] order = {"ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"};
 		int [] course = {2,3,4};
-		System.out.println("result : " + new Level2().solution(order, course));
+		System.out.println("result : " + Arrays.toString(new Level2().solution(order, course)));
 	}
 
 	private String[] solution(String[] order, int[] course) {
