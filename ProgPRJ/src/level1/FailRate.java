@@ -98,8 +98,6 @@ public class FailRate {
 		long [][] answerD = new long [N][2]; //[N][0]은 실패율, [N][1]은 스테이지 번호 
 		Arrays.sort(stages);
 		int i=0, cnt=1; //스테이지 배열 인덱스, 실패한 스테이지 개수
-		System.out.println("sort: " + Arrays.toString(stages));
-		System.out.println();
 		while((i < stages.length)&&(stages[i] != N+1)) {
 			if((i+cnt) < stages.length && stages[i] == stages[i+cnt]) {
 				cnt++;
@@ -114,6 +112,7 @@ public class FailRate {
 			if(answerD[j][0] == 0)
 				answerD[j][1]=j+1;
 		}
+		
 		Arrays.sort(answerD, new Comparator<long[]>() {
 			@Override
 			public int compare(long[] arr1, long[] arr2) {
@@ -122,10 +121,8 @@ public class FailRate {
 				else
 					return (int)(arr2[0]-arr1[0]);
 			}
-			
 		});
 		for(int j=0; j < N; j++) {
-			System.out.println(answerD[j][0] +", " + answerD[j][1]);
 			answer[j]=(int)answerD[j][1];
 		}
 		return answer;
