@@ -95,14 +95,14 @@ public class FailRate {
 	//실패율
 	public int[] solution(int N, int[] stages) {
 		int [] answer = new int [N]; //실패율 높은 스테이지 순으로 정렬할 배열. 
-		long [][] answerD = new long [N][2]; //[N][0]은 실패율, [N][1]은 스테이지 번호 
+		float [][] answerD = new float [N][2]; //[N][0]은 실패율, [N][1]은 스테이지 번호 
 		Arrays.sort(stages);
 		int i=0, cnt=1; //스테이지 배열 인덱스, 실패한 스테이지 개수
 		while((i < stages.length)&&(stages[i] != N+1)) {
 			if((i+cnt) < stages.length && stages[i] == stages[i+cnt]) {
 				cnt++;
 			} else {
-				answerD[stages[i]-1][0]=(long)((cnt/(float)(stages.length-i))*1000000000);
+				answerD[stages[i]-1][0]=cnt/(float)(stages.length-i);
 				answerD[stages[i]-1][1]=stages[i];
 				i+=cnt;
 				cnt=1;
@@ -113,13 +113,15 @@ public class FailRate {
 				answerD[j][1]=j+1;
 		}
 		
-		Arrays.sort(answerD, new Comparator<long[]>() {
+		Arrays.sort(answerD, new Comparator<float[]>() {
 			@Override
-			public int compare(long[] arr1, long[] arr2) {
+			public int compare(float[] arr1, float[] arr2) {
 				if(arr1[0] == arr2[0])
 					return (int)(arr1[1]-arr2[1]);
+				else if(arr2[0] > arr1[0])
+					return 1;
 				else
-					return (int)(arr2[0]-arr1[0]);
+					return -1;
 			}
 		});
 		for(int j=0; j < N; j++) {
