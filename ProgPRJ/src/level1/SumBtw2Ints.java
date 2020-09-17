@@ -13,7 +13,7 @@ public class SumBtw2Ints {
 		if(a > b) {
 			swNsum=a;
 			a=b;
-			b=(long)swNsum;
+			b=(int)swNsum;
 			swNsum=0;
 		}
 		for(int i=a; i <= b; i++)
