@@ -6,8 +6,8 @@ public class RemoveMin {
 
 	public static void main(String[] args) {
 		//제일 작은 수 제거하기
-		/*int [] arr = {10,11,4,7};
-		System.out.println(Arrays.toString(new Level1().solution2(arr)));*/
+		int [] arr = {10,11,4,7,3,4};
+		System.out.println(Arrays.toString(new RemoveMin().solution2(arr)));
 	}
 	//제일 작은 수 제거하기
 	public int[] solution2(int[] arr) {
