@@ -9,7 +9,6 @@ public class NewIdRec {
 	
 	public String solution(String new_id) {
 		String answer="";
-		boolean areDots = true;
 		//1단계 대문자 -> 소문자
 		new_id=new_id.toLowerCase();
 		
@@ -20,7 +19,8 @@ public class NewIdRec {
 		}
 		
 		//3단계 마침표(.) 2번 이상 연속된다면 한 개로 치환
-		/*while(areDots) {
+		/*boolean areDots = true;
+		while(areDots) {
 			if(answer.contains(".."))
 				answer=answer.replace("..", ".");
 			else
