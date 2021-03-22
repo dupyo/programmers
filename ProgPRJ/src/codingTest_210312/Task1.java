@@ -1,4 +1,4 @@
-package competition_210312;
+package codingTest_210312;
 
 import java.util.Arrays;
 

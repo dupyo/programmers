@@ -1,4 +1,4 @@
-package competition_210312;
+package codingTest_210320;
 
 public class Task2 {
 
