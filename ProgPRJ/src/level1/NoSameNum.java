@@ -19,14 +19,13 @@ public class NoSameNum {
 		for(int i=1; i < arr.length; i++) {
 			if(pre!=arr[i]) {
 				arrList.add(arr[i]);
+				pre=arr[i];
 			}
-			pre=arr[i];
 		}
 		
 		int [] answer = new int [arrList.size()];
-		for(int i=0; i < arrList.size(); i++) {
+		for(int i=0; i < arrList.size(); i++)
 			answer[i]=(int)arrList.get(i);
-		}
 		
 		return answer;
     }
