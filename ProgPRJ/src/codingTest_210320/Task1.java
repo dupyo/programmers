@@ -18,11 +18,11 @@ public class Task1 {
 		
 		for(int i=0; i<a; i++) {
 			String[] time = times[i].replaceAll(":", "").split("~");
-			if(str < Integer.parseInt(time[0])) {
+			if(str < Integer.parseInt(time[0])) {	//앞의 시간 최댓값 구하기
 				from=times[i].substring(0,5);
 				str=Integer.parseInt(time[0]);
 			}
-			if(end > Integer.parseInt(time[1])) {
+			if(end > Integer.parseInt(time[1])) {	//뒤의 시간 최솟값 구하기
 				to=times[i].substring(6);
 				end=Integer.parseInt(time[1]);
 			}
@@ -30,7 +30,7 @@ public class Task1 {
 		
 		String answer = "";
 		
-		if(str>end)
+		if(str>end)	//앞의 시간이 뒤의 시간보다 크면 -1 반환
 			answer="-1";
 		else
 			answer=from+"~"+to;

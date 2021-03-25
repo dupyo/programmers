@@ -3,7 +3,7 @@ package codingTest_210320;
 public class Task2 {
 
 	public static void main(String[] args) {
-		System.out.println(new Task2().solution(4, "11"));
+		System.out.println(new Task2().solution(4, "1101"));
 	}
 	
 	public int solution(int a, String b) {
@@ -18,16 +18,12 @@ public class Task2 {
 		int one = 1;
 		int two = 1;
 		
-		//같은 것이 있는 순열 구하기
-		while(std_o>=0) {
-			//첫번째 수와 두번째 수의 합의 팩토리얼
-			for(int i=std_ot; i >= 1; i--)
+		while(std_o>=0) {			//같은 것이 있는 순열 구하기
+			for(int i=std_ot; i >= 1; i--)	//첫번째 수와 두번째 수의 합의 팩토리얼
 				ot*=i;
-			//첫번째 수의 팩토리얼
-			for(int i=std_o; i >= 1; i--)
+			for(int i=std_o; i >= 1; i--)	//첫번째 수의 팩토리얼
 				one*=i;
-			//두번째 수의 팩토리얼
-			for(int i=std_ot-std_o; i >= 1; i--)
+			for(int i=std_ot-std_o; i >= 1; i--)	//두번째 수의 팩토리얼
 				two*=i;
 			
 			std_ot--;
