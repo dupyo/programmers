@@ -5,21 +5,37 @@ import java.util.Arrays;
 public class Task1 {
 
 	public static void main(String[] args) {
-		System.out.println("" + new Task1().solution(123456));
+		int a = 3;
+		String [] times = {"12:00~23:59", "11:00~18:00", "14:00~20:00"};
+		System.out.println("" + new Task1().solution(a, times));
 	}
 	
-	public int solution(int A) {
+	public String solution(int a, String[] times) {
+		int str = 0;
+		int end = 2359;
+		String from = "";
+		String to = "";
 		
-		char [] A_arr =  Integer.toString(A).toCharArray();
-		String B_str = "";
-		for(int i=0; i<A_arr.length; i++) {
-			if(i%2==0)
-				B_str+=Character.getNumericValue(A_arr[i]);
-			else
-				B_str+=Character.getNumericValue(A_arr[A_arr.length-i]);
+		for(int i=0; i<a; i++) {
+			String[] time = times[i].replaceAll(":", "").split("~");
+			if(str < Integer.parseInt(time[0])) {
+				from=times[i].substring(0,5);
+				str=Integer.parseInt(time[0]);
+			}
+			if(end > Integer.parseInt(time[1])) {
+				to=times[i].substring(6);
+				end=Integer.parseInt(time[1]);
+			}
 		}
 		
-		return Integer.parseInt(B_str);
+		String answer = "";
+		
+		if(str>end)
+			answer="-1";
+		else
+			answer=from+"~"+to;
+		
+		return answer;
 	}
 
 }
