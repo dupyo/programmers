@@ -102,7 +102,7 @@ public class FailRate {
 				answerD[j][1]=j+1;
 		}
 		
-		Arrays.sort(answerD, new Comparator<float[]>() {
+		Arrays.sort(answerD, new Comparator<float[]>() {	//실패율 높은 순서로 정렬(내림차순)
 			@Override
 			public int compare(float[] arr1, float[] arr2) {
 				if(arr1[0] == arr2[0])
