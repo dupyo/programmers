@@ -13,6 +13,7 @@ public class Competition1 {
 		System.out.println(Arrays.toString(new Competition1().solution(numbers)));
 	}
 	
+	//두 개 뽑아서 더하기
 	public int[] solution(int[] numbers) {
 		int sum = 0;
         List<Integer> list = new ArrayList<Integer>();
