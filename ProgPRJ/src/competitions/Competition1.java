@@ -9,7 +9,7 @@ import java.util.List;
 public class Competition1 {
 
 	public static void main(String[] args) {
-		int [] numbers = {5,0,2,7,1,3,2,7,4};
+		int [] numbers = {5,0,2,7};
 		System.out.println(Arrays.toString(new Competition1().solution(numbers)));
 	}
 	
@@ -24,7 +24,6 @@ public class Competition1 {
         			list.add(sum);
         	}
         }
-        
         int[] answer = new int [list.size()];
         for(int i=0; i<list.size(); i++)
         	answer[i]=list.get(i);
