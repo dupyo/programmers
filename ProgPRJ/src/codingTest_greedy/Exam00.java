@@ -13,12 +13,8 @@ public class Exam00 {
 		int j=0;
 		int answer=0;
 		while(N > 0) {
-			if(i * n[j] < N) {
-				i++;
-			} else {
-				if((i-1)*n[j]==N || (i)*n[j]>N)
-					i--;
-				answer+=i;
+			if(++i * n[j] > N) {
+				answer+=(--i);
 				N-=i*n[j];
 				j++;
 				i=1;
