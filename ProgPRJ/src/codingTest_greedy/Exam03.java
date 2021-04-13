@@ -1,10 +1,13 @@
 package codingTest_greedy;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class Exam03 {
 
 	public static void main(String[] args) {
 		int N=5;
-		String K="2 3 1 2 2";
+		String K="23122";
 		System.out.println(new Exam03().solution(N, K));
 	}
 	
@@ -19,9 +22,28 @@ public class Exam03 {
 	//출력조건 : 여행을 떠날 수 있는 그룹 수의 최댓값을 출력
     //
 	//입력예시 : 5 // 23122 , 출력예시 : 2
+	//입력예시 : 7 // 2132241 , 출력예시 : 3
 	public int solution(int N, String K) {
 		int answer=0;
-		
+		int i=0;
+		String [] KNums = K.split("");
+		Arrays.sort(KNums);
+		Collections.reverse(Arrays.asList(KNums));
+		System.out.println(Arrays.toString(KNums));
+		while(true) {
+			System.out.println("i : " + i);
+			try {
+				i+=Integer.parseInt(KNums[i]);
+				answer++;
+				System.out.println("answer : " + answer);
+				System.out.println("----out1");
+			}
+			catch (IndexOutOfBoundsException e) {
+				System.out.println("----out2");
+				break;
+			}
+		}
+		System.out.println("======");
 		return answer;
 	}
 
