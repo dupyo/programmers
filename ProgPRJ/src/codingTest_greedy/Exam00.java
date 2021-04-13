@@ -3,7 +3,7 @@ package codingTest_greedy;
 public class Exam00 {
 
 	public static void main(String[] args) {
-		int N=1260;
+		int N=80;
 		System.out.println(new Exam00().solution(N));
 	}
 	

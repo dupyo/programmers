@@ -6,8 +6,8 @@ import java.util.Collections;
 public class Exam03 {
 
 	public static void main(String[] args) {
-		int N=5;
-		String K="23122";
+		int N=7;
+		String K="2132241";
 		System.out.println(new Exam03().solution(N, K));
 	}
 	
