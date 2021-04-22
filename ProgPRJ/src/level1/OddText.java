@@ -5,24 +5,24 @@ public class OddText {
 	public static void main(String[] args) {
 		//이상한 문자 만들기
 		String s = "try hello world";
+		System.out.println("TrY HeLlO WoRlD");
 		System.out.println(new OddText().solution(s));
 	}
 	
 	//이상한 문자 만들기
 	public String solution(String s) {
-		char [] aphs = s.toCharArray();
-		int idx = 0;
+		s=s.toUpperCase();	//모든 문자를 대문자로 변환
+		char [] aphs = s.toCharArray();	//String -> char[]
+		int idx = 0;	//홀짝 구하는 인덱스
 		for(int i=0; i<aphs.length; i++) {
-			if(aphs[i] == ' ') {
+			if(aphs[i] == ' ') {	//공백 나오면 홀짝 구하는 인덱스 초기화
 				idx=0;
-			} else if(idx%2==0) {
-				aphs[i]=Character.toUpperCase(aphs[i]);
-				idx++;
-			} else {
-				aphs[i]=Character.toLowerCase(aphs[i]);
-				idx++;
+				continue;
+			} else if(idx%2==1) {
+				aphs[i]=(char)(aphs[i]+32);	//아스키 코드 대문자->소문자 변환
 			}
+			idx++;
 		}
-		return String.valueOf(aphs);
+		return String.valueOf(aphs);	//char[] -> String
 	}
 }
