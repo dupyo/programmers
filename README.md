@@ -1,2 +1,2 @@
 # programmers
-To commit recode I've solved quiz in Programmers
+To commit repos I've solved quiz in Programmers
