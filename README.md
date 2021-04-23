@@ -1,2 +1,2 @@
 # programmers
-프로그래머스 사이트에서 풀었던 문제들을 올립니다.
+To commit the quiz I've solved in Programmers
