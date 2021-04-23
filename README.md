@@ -1,2 +1,2 @@
 # programmers
-To commit the quiz I've solved in Programmers
+To commit recode I've solved quiz in Programmers
