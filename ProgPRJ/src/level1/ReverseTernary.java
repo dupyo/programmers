@@ -9,14 +9,16 @@ public class ReverseTernary {
 	}
 	
 	public int solution(int n) {
-		int answer = 0;
+//		int answer = 0;
 		String ternaries = "";
 		while(n > 0) {
-			ternaries=(n%3)+ternaries;
+			ternaries+=(n%3);
+//			ternaries=(n%3)+ternaries;
 			n=n/3;
 		}
-		for(int i = 0; i < ternaries.length(); i++)
+		/*for(int i = 0; i < ternaries.length(); i++)
 			answer+=Math.pow(3, i)*(int)(ternaries.charAt(i)-'0');
-		return answer;
+		return answer;*/
+		return Integer.parseInt(ternaries, 3);
 	}
 }
