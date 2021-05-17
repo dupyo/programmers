@@ -3,6 +3,7 @@ package level1;
 public class PosiNegaSum {
 
 	public static void main(String[] args) {
+		//음양 더하기
 		int[] absolutes = {4,7,12};
 		boolean[] signs = {true,false,true};
 		System.out.println(new PosiNegaSum().solution(absolutes, signs));
