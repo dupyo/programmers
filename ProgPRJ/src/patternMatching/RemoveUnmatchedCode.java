@@ -34,7 +34,6 @@ public class RemoveUnmatchedCode {
 			answer+=tmp.length();
 			res+=tmp;
 		}
-		System.out.println(res);
 		if(s.length() == res.length())
 			return -1;
 		else
