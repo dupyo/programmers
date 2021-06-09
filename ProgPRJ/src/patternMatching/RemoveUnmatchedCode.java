@@ -3,13 +3,8 @@ package patternMatching;
 public class RemoveUnmatchedCode {
 
 	public static void main(String[] args) {
-//		String p = "110";
 		String p = "101";
-//		String p = "00";
-//		String s = "110110110110";
-		String s = "101000101011011001";
-//		String s = "100000001";
-//		String s = "10111111";
+		String s = "10100010101101100";
 		System.out.println(new RemoveUnmatchedCode().solution(p, s));
 	}
 	
