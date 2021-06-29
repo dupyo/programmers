@@ -9,7 +9,7 @@ public class MathExpressionMaximize {
 		// 수식 최대화
 		String expression = "50*6-3*2";
 		// "50*6-3*2" -> 300
-		solution(expression);
+		System.out.println(solution(expression));
 	}
 
 	public static long solution(String expression) {
@@ -25,22 +25,32 @@ public class MathExpressionMaximize {
 			list.add(operator[i]);
 		}
 		list.add(Long.parseLong(operand[operand.length - 1]));
-		for (int i = 0; i < list.size(); i++) {
-			System.out.print(list.get(i) + ", ");
-		}
+		System.out.println(list.toString());
 		System.out.println();
 
 		// list 복사
 		List<Object> copyList = list.subList(0, list.size());
 		long tmp = 0;
-		for (int i = 1; i < operator.length; i++) {
-			tmp = operation((long) copyList.get(i - 1), (long) copyList.get(i + 1), (char) copyList.get(i));
-			System.out.println(i+" "+tmp);
-			list.add(i - 1, tmp);
-			list.remove(i);
-			list.remove(i + 1);
+		int idx = 1;
+		for (int i = 0; i < operator.length; i++) {
+			System.out.println("operator : " + operator[i]);
+			for (int j = 1; j < copyList.size(); j += 2) {
+				if ((char) copyList.get(j) == operator[i]) {
+					System.out.print(copyList.toString() + " -> ");
+					tmp = operation((long) copyList.get(idx - 1), (long) copyList.get(idx + 1),
+							(char) copyList.get(idx));
+					copyList.set(idx + 1, tmp);
+					copyList.remove(idx);
+					copyList.remove(idx - 1);
+					System.out.println(copyList.toString());
+					idx = 1;
+					j = 1;
+				}
+			}
 		}
-		System.out.println("answer : " + answer);
+
+		answer = (long) copyList.get(0);
+		System.out.println("-------");
 		return answer;
 	}
 
