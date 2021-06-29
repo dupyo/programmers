@@ -31,19 +31,19 @@ public class MathExpressionMaximize {
 		// list 복사
 		List<Object> copyList = list.subList(0, list.size());
 		long tmp = 0;
-		int idx = 1;
+		int operated_j = 1;
 		for (int i = 0; i < operator.length; i++) {
 			System.out.println("operator : " + operator[i]);
 			for (int j = 1; j < copyList.size(); j += 2) {
 				if ((char) copyList.get(j) == operator[i]) {
 					System.out.print(copyList.toString() + " -> ");
-					tmp = operation((long) copyList.get(idx - 1), (long) copyList.get(idx + 1),
-							(char) copyList.get(idx));
-					copyList.set(idx + 1, tmp);
-					copyList.remove(idx);
-					copyList.remove(idx - 1);
+					tmp = operation((long) copyList.get(operated_j - 1), (long) copyList.get(operated_j + 1),
+							(char) copyList.get(operated_j));
+					copyList.set(operated_j + 1, tmp);
+					copyList.remove(operated_j);
+					copyList.remove(operated_j - 1);
 					System.out.println(copyList.toString());
-					idx = 1;
+					operated_j = 1;
 					j = 1;
 				}
 			}
