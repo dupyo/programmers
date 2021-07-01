@@ -32,10 +32,12 @@ public class MathExpressionMaximize {
 		List<Object> copyList = list.subList(0, list.size());
 		long tmp = 0;
 		int operated_j = 1;
+		int j = 1;
 		for (int i = 0; i < operator.length; i++) {
 			System.out.println("operator : " + operator[i]);
-			for (int j = 1; j < copyList.size(); j += 2) {
+			while (j < copyList.size()) {
 				if ((char) copyList.get(j) == operator[i]) {
+					System.out.println(j + "~~~" + copyList.get(j) + ", " + operator[i]);
 					System.out.print(copyList.toString() + " -> ");
 					tmp = operation((long) copyList.get(operated_j - 1), (long) copyList.get(operated_j + 1),
 							(char) copyList.get(operated_j));
@@ -45,6 +47,11 @@ public class MathExpressionMaximize {
 					System.out.println(copyList.toString());
 					operated_j = 1;
 					j = 1;
+					continue;
+				} else {
+					System.out.println(j + "~~~" + copyList.get(j) + ", " + operator[i]);
+					operated_j += 2;
+					j += 2;
 				}
 			}
 		}
