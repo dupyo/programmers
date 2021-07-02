@@ -24,26 +24,21 @@ public class MathExpressionMaximize {
 			list.add(operator[i]);
 		}
 		list.add(Long.parseLong(operand[operand.length - 1]));
-		System.out.println(list.toString());
-		System.out.println();
 
 		// list 복사
 		List<Object> copyList = list.subList(0, list.size());
 		long tmp = 0;
 		int operated_j = 1;
 		int j = 1;
+		// 순서에 맞게 연산하는 부분은 구현했음. 우선순위를 재정의 하는 앞부분이 필요함
 		for (int i = 0; i < operator.length; i++) {
-			System.out.println("operator : " + operator[i]);
 			while (j < copyList.size()) {
-				System.out.println("j : " + j + ", " + copyList.get(j) + ", " + operator[i]);
 				if ((char) copyList.get(j) == operator[i]) {
-					System.out.print(copyList.toString() + " -> ");
 					tmp = operation((long) copyList.get(operated_j - 1), (long) copyList.get(operated_j + 1),
 							(char) copyList.get(operated_j));
 					copyList.set(operated_j + 1, tmp);
 					copyList.remove(operated_j);
 					copyList.remove(operated_j - 1);
-					System.out.println(copyList.toString());
 					operated_j = 1;
 					j = 1;
 					continue;
@@ -54,9 +49,9 @@ public class MathExpressionMaximize {
 			j = 1;
 			operated_j = 1;
 		}
-
-		answer = (long) copyList.get(0);
-		System.out.println("-------");
+		long abs = Math.abs((long) copyList.get(0));
+		if (abs > answer)
+			answer = abs;
 		return answer;
 	}
 
