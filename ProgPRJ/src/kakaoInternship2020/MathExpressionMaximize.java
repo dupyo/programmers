@@ -16,7 +16,6 @@ public class MathExpressionMaximize {
 		long answer = 0;
 		String[] operand = expression.split("\\W");
 		char[] operator = expression.replaceAll("\\w", "").toCharArray();
-		int loopCnt = 1;
 
 		// list 형식으로 피연산자와 연산자를 순서대로 저장하여 사용
 		List<Object> list = new ArrayList<>();
@@ -36,8 +35,8 @@ public class MathExpressionMaximize {
 		for (int i = 0; i < operator.length; i++) {
 			System.out.println("operator : " + operator[i]);
 			while (j < copyList.size()) {
+				System.out.println("j : " + j + ", " + copyList.get(j) + ", " + operator[i]);
 				if ((char) copyList.get(j) == operator[i]) {
-					System.out.println(j + "~~~" + copyList.get(j) + ", " + operator[i]);
 					System.out.print(copyList.toString() + " -> ");
 					tmp = operation((long) copyList.get(operated_j - 1), (long) copyList.get(operated_j + 1),
 							(char) copyList.get(operated_j));
@@ -48,12 +47,12 @@ public class MathExpressionMaximize {
 					operated_j = 1;
 					j = 1;
 					continue;
-				} else {
-					System.out.println(j + "~~~" + copyList.get(j) + ", " + operator[i]);
-					operated_j += 2;
-					j += 2;
 				}
+				operated_j += 2;
+				j += 2;
 			}
+			j = 1;
+			operated_j = 1;
 		}
 
 		answer = (long) copyList.get(0);
