@@ -30,7 +30,7 @@ public class MathExpressionMaximize {
 		long tmp = 0;
 		int operated_j = 1;
 		int j = 1;
-		// 순서에 맞게 연산하는 부분은 구현했음. 우선순위를 재정의 하는 앞부분이 필요함
+		// 순서에 맞게 연산하는 부분은 구현했음. 우선순위를 재정의 하는 앞부분이 필요함. 가능하면 스택 구조로 해결할 수 있는 방법으로.
 		for (int i = 0; i < operator.length; i++) {
 			while (j < copyList.size()) {
 				if ((char) copyList.get(j) == operator[i]) {
