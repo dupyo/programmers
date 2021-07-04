@@ -15,7 +15,7 @@ public class MathExpressionMaximize {
 	public static long solution(String expression) {
 		long answer = 0;
 		String[] operand = expression.split("\\W");
-		String[] operator = expression.replaceAll("\\w", "").split("");
+		char[] operator = expression.replaceAll("\\w", "").toCharArray();
 
 		// list 형식으로 피연산자와 연산자를 순서대로 저장하여 사용
 		List<Object> list = new ArrayList<>();
