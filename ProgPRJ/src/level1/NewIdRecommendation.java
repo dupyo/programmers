@@ -1,10 +1,10 @@
 package level1;
 
-public class NewIdRec {
-
+public class NewIdRecommendation {
 	public static void main(String[] args) {
+		// 신규 아이디 추천
 		String new_id = "a=b";
-		System.out.println("answer : " + new NewIdRec().solution(new_id));
+		System.out.println("answer : " + new NewIdRecommendation().solution(new_id));
 	}
 
 	public String solution(String new_id) {
