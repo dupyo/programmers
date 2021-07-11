@@ -7,29 +7,28 @@ public class RemoveUnmatchedCode {
 		String s = "10100010101101100";
 		System.out.println(new RemoveUnmatchedCode().solution(p, s));
 	}
-	
+
 	public int solution(String p, String s) {
 		int answer = 0;
-		String res = "";
-		String tmp = "";
-		int pIdx = 0;
-		for(int i = 0; i < s.length(); i++) {
-			if(p.charAt(pIdx%p.length()) == s.charAt(i)) {
-				tmp+=p.charAt(pIdx%p.length());
-				pIdx++;
-				if(tmp.equals(p)) {
-					tmp="";
-				}
+		String removed = "";
+		String tmp_pattern = "";
+		int p_i = 0;
+		for (int i = 0; i < s.length(); i++) {
+			if (p.charAt(p_i % p.length()) == s.charAt(i)) {
+				tmp_pattern += p.charAt(p_i % p.length());
+				p_i++;
+				if (tmp_pattern.equals(p))
+					tmp_pattern = "";
 			} else {
 				answer++;
-				res+=s.charAt(i);
+				removed += s.charAt(i);
 			}
 		}
-		if(tmp.length() > 0 && !tmp.equals(p)) {
-			answer+=tmp.length();
-			res+=tmp;
+		if (tmp_pattern.length() > 0 && !tmp_pattern.equals(p)) {
+			answer += tmp_pattern.length();
+			removed += tmp_pattern;
 		}
-		if(s.length() == res.length())
+		if (s.length() == removed.length())
 			return -1;
 		else
 			return answer;
