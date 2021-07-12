@@ -5,16 +5,15 @@ public class ArrAvg {
 	public static void main(String[] args) {
 		//평균 구하기
 		int [] arr = {5,5};
-		System.out.println(new ArrAvg().solution(arr));
-
+		System.out.println(solution(arr));
 	}
 	
 	//평균 구하기
-	public double solution(int[] arr) {
-		int i=0;
+	public static double solution(int[] arr) {
 		double sum=0;
-		while(i<arr.length) sum+=arr[i++];
-		return sum/i;
+		for(int i : arr)
+			sum+=i;
+		return sum/arr.length;
 	}
 
 }
