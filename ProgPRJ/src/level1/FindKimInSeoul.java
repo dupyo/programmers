@@ -1,27 +1,19 @@
 package level1;
 
-import java.util.Arrays;
-
 public class FindKimInSeoul {
 
 	public static void main(String[] args) {
-		String[] seoul = {"Jane", "Kia", "Srr", "Kim", "Srr"};
-		System.out.println(new FindKimInSeoul().solution(seoul));
+		// 서울에서 김서방 찾기
+		String[] seoul = { "Jane", "Kia", "Srr", "Kim", "Srr" };
+		System.out.println(solution(seoul));
 	}
-	
-	public String solution(String[] seoul) {
-		String answer="";
-//		int i = Arrays.asList(seoul).indexOf("Kim");
-//		answer="김서방은 "+i+"에 있다";
-		int i=0;
-		while(true) {
-			if(seoul[i].equals("Kim")) {
-				i++;
-				break;
-			}
+
+	public static String solution(String[] seoul) {
+		for (int i = 0; i < seoul.length; i++) {
+			if (seoul[i].equals("Kim"))
+				return "김서방은 " + i + "에 있다";
 		}
-		answer="김서방은 "+i+"에 있다";
-		return answer;
+		return "";
 	}
 
 }
