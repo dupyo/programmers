@@ -1,11 +1,11 @@
 package level1;
 
-public class IsIntegerSquareRoot {
+public class IsIntSquareRoot {
 
 	public static void main(String[] args) {
 		// 정수 제곱근 판별
 		long n = 9;
-		System.out.println(new IsIntegerSquareRoot().solution(n));
+		System.out.println(new IsIntSquareRoot().solution(n));
 	}
 
 	// 정수 제곱근 판별
