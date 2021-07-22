@@ -15,7 +15,7 @@ public class DigitFlipToArr {
 		String nStr = Long.toString(n);
 		int[] answer = new int[nStr.length()];
 		for (int i = 0; i < nStr.length(); i++)
-			answer[i] = Integer.parseInt("" + nStr.charAt(nStr.length() - 1 - i));
+			answer[i] = nStr.charAt(nStr.length() - 1 - i) - 48;	// Integer.parseInt() 메소드 쓰지 않고 아스키 코드표 활용
 		return answer;
 	}
 
