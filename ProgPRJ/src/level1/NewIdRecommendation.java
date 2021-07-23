@@ -17,7 +17,6 @@ public class NewIdRecommendation {
 
 		// 3단계 마침표(.) 2번 이상 연속된다면 한 개로 치환
 		answer = answer.replaceAll("\\.{2,}", ".");
-		System.out.println(answer);
 
 		// 4단계 처음이나 끝에 위치한 마침표(.) 제거
 		answer = answer.replaceAll("^\\.|\\.$", "");
