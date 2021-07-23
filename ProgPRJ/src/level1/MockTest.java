@@ -42,7 +42,7 @@ public class MockTest {
 			if (scoreboard[i] == max)
 				answer[answer.length - (winnerSize--)] = i + 1;
 		}
-
+		
 		return answer;
 	}
 }
