@@ -13,9 +13,9 @@ public class NoSameNum {
 	}
 
 	public static int[] solution(int[] arr) {
-		
+
 		// 제거된 후 남은 수를 저장할 배열을 생성하기 위해 중복 없는 배열의 길이를 구하라
-		// 길이를 구하면 반복문에서 임시로 이전 값을 저장해서 중복을 허용하지 않도록 조건을 걸어라 
+		// 길이를 구하면 반복문에서 임시로 이전 값을 저장해서 중복을 허용하지 않도록 조건을 걸어라
 		int pre = arr[0];
 		List arrList = new ArrayList();
 		arrList.add(arr[0]);
@@ -26,7 +26,6 @@ public class NoSameNum {
 				pre = arr[i];
 			}
 		}
-
 		int[] answer = new int[arrList.size()];
 		for (int i = 0; i < arrList.size(); i++)
 			answer[i] = (int) arrList.get(i);
