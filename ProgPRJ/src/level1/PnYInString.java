@@ -7,7 +7,7 @@ public class PnYInString {
 		String s = "pPoooyY";
 		System.out.println(new PnYInString().solution(s));
 	}
-	// 글자 빈도수 구하는 메소드
+	// 글자 빈도수 구하는 부분 메소드로 분리
 	public int count(String str, String match) {
 		return str.length() - str.replaceAll(match, "").length();
 	}
