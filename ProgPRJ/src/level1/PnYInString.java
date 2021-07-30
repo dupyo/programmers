@@ -11,7 +11,7 @@ public class PnYInString {
 	public static int count(String str, String match) {
 		return str.length() - str.replaceAll(match, "").length();
 	}
-	public boolean solution(String s) {
+	public static boolean solution(String s) {
 		int cnt = 0;
 		s = s.toLowerCase();
 		// 문자열에서 p의 개수와 y의 개수의 차를 이용
