@@ -5,12 +5,11 @@ public class OddText {
 	public static void main(String[] args) {
 		// 이상한 문자 만들기
 		String s = "try hello world";
-		System.out.println("TrY HeLlO WoRlD");
-		System.out.println(new OddText().solution(s));
+		System.out.println(solution(s));
 	}
 
 	// 이상한 문자 만들기
-	public String solution(String s) {
+	public static String solution(String s) {
 		s = s.toUpperCase(); // 모든 문자를 대문자로 변환
 		char[] arr = s.toCharArray(); // String -> char[]
 		int idx = 0; // 홀짝 구하는 인덱스
