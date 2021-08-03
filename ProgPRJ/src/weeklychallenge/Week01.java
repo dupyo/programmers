@@ -11,7 +11,7 @@ public class Week01 {
 	}
 
 	public static long solution(int price, int money, int count) {
-		return Math.max(price * count * (count + 1) / 2, 0);	// 클린 코드
+		return Math.max(price * count * (count + 1) / 2 - money, 0);	// 클린 코드
 	}
 
 }
