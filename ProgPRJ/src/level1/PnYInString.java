@@ -7,17 +7,13 @@ public class PnYInString {
 		String s = "pPoooyY";
 		System.out.println(solution(s));
 	}
-	// 글자 빈도수 구하는 부분 메소드로 분리
-	public static int count(String str, String match) {
-		return str.length() - str.replaceAll(match, "").length();
+	// 글자를 제외한 길이 반환 메소드로 분리
+	public static int countout(String str, String match) {
+		return str.replaceAll(match, "").length();
 	}
 	public static boolean solution(String s) {
-		int cnt = 0;
 		s = s.toLowerCase();
-		// 문자열에서 p의 개수와 y의 개수의 차를 이용
-		cnt = count(s, "p");
-		cnt -= count(s, "y");
-		return (cnt == 0);
+		return (countout(s, "p") == countout(s, "y"));	// 문자열에서 p의 개수와 y의 개수를 비교
 	}
 
 }
