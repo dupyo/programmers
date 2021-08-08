@@ -7,18 +7,12 @@ public class ReverseTernary {
 		int n = 125;
 		System.out.println(solution(n));
 	}
-	
 	public static int solution(int n) {
-//		int answer = 0;
-		String ternaries = "";
+		String ternary = "";
 		while(n > 0) {
-			ternaries += (n % 3);
-//			ternaries = (n % 3) + ternaries;
-			n = n / 3;
+			ternary += (n % 3);
+			n /= 3;
 		}
-		/*for(int i = 0; i < ternaries.length(); i++)
-			answer += Math.pow(3, i) * (int)(ternaries.charAt(i) - '0');
-		return answer;*/
-		return Integer.parseInt(ternaries, 3);
+		return Integer.parseInt(ternary, 3);
 	}
 }
