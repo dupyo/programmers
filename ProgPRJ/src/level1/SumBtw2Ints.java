@@ -17,6 +17,7 @@ public class SumBtw2Ints {
 			b = (int) swNsum;
 			swNsum = 0;
 		}
+		// 시그마 활용 sum(1:b) - sum(1:a-1) (단, b > a)
 		for (int i = a; i <= b; i++)
 			swNsum += i;
 		return swNsum;
