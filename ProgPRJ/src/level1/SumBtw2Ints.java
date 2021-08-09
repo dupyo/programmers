@@ -10,17 +10,10 @@ public class SumBtw2Ints {
 	}
 
 	public static long solution(int a, int b) {
-		long swNsum = 0;
-		if (a > b) {
-			swNsum = a;
-			a = b;
-			b = (int) swNsum;
-			swNsum = 0;
-		}
-		// 시그마 활용 sum(1:b) - sum(1:a-1) (단, b > a)
-		for (int i = a; i <= b; i++)
-			swNsum += i;
-		return swNsum;
+		int start = Math.max(a, b);
+		int end = Math.min(a, b);
+		// 시그마 활용 sum(1:end) - sum(1:start-1) (단, end > start)
+		return end * (end + 1) / 2 - start * (start - 1) / 2;
 	}
 
 }
