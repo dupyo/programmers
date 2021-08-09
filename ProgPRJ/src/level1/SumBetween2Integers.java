@@ -1,6 +1,6 @@
 package level1;
 
-public class SumBtw2Ints {
+public class SumBetween2Integers {
 
 	public static void main(String[] args) {
 		// 두 정수 사이의 합
