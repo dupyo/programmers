@@ -8,9 +8,6 @@ public class Week02 {
 				{ 61, 57, 100, 80, 65 }, { 24, 90, 94, 75, 65 } };
 		System.out.println(solution(scores));
 	}
-	public static String credit(int score) {
-		return "";
-	}
 	public static String solution(int[][] scores) {
 		// 1. 점수의 평균을 구한다.(자신이 부여한 점수가 유일한 최대 또는 최소라면 제외한다.)
 		// 2. 범위에 맞는 성적을 찾아 결과에 추가한다.(메소드 분리)
@@ -24,11 +21,27 @@ public class Week02 {
 			for(int j = 0; j < scores.length; j++) {
 				min = Math.min(min, scores[j][i]);
 				max = Math.max(max, scores[j][i]);
-				if(myscore == scores[j][i])
+				if(myscore == min || myscore == max) {
 					sum += scores[j][i];
+					people--;
+				}
 			}
+			System.out.println(min + ", " + max);
+			System.out.println(sum + ", " + people);
+			answer += credit(sum/people);
 		}
 		return answer;
+	}
+	public static String credit(int score) {
+		if(score >= 90)
+			return "A";
+		if(score >= 80)
+			return "B";
+		if(score >= 70)
+			return "C";
+		if(score >= 50)
+			return "D";
+		return "F";
 	}
 
 }
