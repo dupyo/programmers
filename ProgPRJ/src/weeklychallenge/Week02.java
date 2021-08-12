@@ -17,19 +17,20 @@ public class Week02 {
 			int people = scores.length;
 			int[] scorecount = new int[101]; // 0~100점까지 101개의 점수를 가리키는 배열
 			int sum = 0;
+			int myscore = scores[i][i];	// 자기 자신이 부여한 점수
 			for (int j = 0; j < scores.length; j++) {
 				scorecount[scores[j][i]]++;
 				sum += scores[j][i];
 			}
-			if (isMin(scores[i][i], scorecount) || isMax(scores[i][i], scorecount)) {
-				sum -= scores[i][i];
+			if (isMin(myscore, scorecount) || isMax(myscore, scorecount)) {
+				sum -= myscore;
 				people--;
 			}
 			answer += credit(sum / people);
 		}
 		return answer;
 	}
-
+	// 자기 자신이 부여한 점수가 최솟값인지 판단함
 	public static boolean isMin(int myscore, int[] scorecount) {
 		for (int i = 0; i < scorecount.length; i++) {
 			if (scorecount[i] > 0) {
@@ -40,7 +41,7 @@ public class Week02 {
 		}
 		return false;
 	}
-
+	// 자기 자신이 부여한 점수가 최댓값인지 판단함
 	public static boolean isMax(int myscore, int[] scorecount) {
 		for (int i = scorecount.length - 1; i >= 0; i--) {
 			if (scorecount[i] > 0) {
@@ -51,7 +52,7 @@ public class Week02 {
 		}
 		return false;
 	}
-
+	// 평균을 구하여 최종 학점을 부여함 
 	public static String credit(int average) {
 		if (average >= 90)
 			return "A";
