@@ -10,14 +10,15 @@ public class Week02 {
 	}
 
 	public static String solution(int[][] scores) {
-		// 1. 점수의 평균을 구한다.(자신이 부여한 점수가 유일한 최대 또는 최소라면 제외한다.)
-		// 2. 범위에 맞는 성적을 찾아 결과에 추가한다.(메소드 분리)
+		// 1. 자신에게 부여한 점수가 유일한 최대 또는 최소인지 판단(메소드 분리)하여 맞으면 평균 계산에서 제외한다.
+		// 2. 점수의 평균을 구한다.
+		// 3. 평균을 구하여 범위에 맞는 학점을 찾아(메소드 분리)낸 후 결과에 추가한다.
 		String answer = "";
 		for (int i = 0; i < scores.length; i++) {
-			int people = scores.length;
-			int[] scorecount = new int[101]; // 0~100점까지 101개의 점수를 가리키는 배열
+			int people = scores.length;	// 
 			int sum = 0;
-			int myscore = scores[i][i];	// 자기 자신이 부여한 점수
+			int[] scorecount = new int[101]; // 0~100점까지 101개의 점수를 가리키는 배열
+			int myscore = scores[i][i];	// 자기 자신에게 부여한 점수
 			for (int j = 0; j < scores.length; j++) {
 				scorecount[scores[j][i]]++;
 				sum += scores[j][i];
