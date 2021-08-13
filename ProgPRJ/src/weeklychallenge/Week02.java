@@ -15,15 +15,15 @@ public class Week02 {
 		// 3. 평균을 구하여 범위에 맞는 학점을 찾아(메소드 분리)낸 후 결과에 추가한다.
 		String answer = "";
 		for (int i = 0; i < scores.length; i++) {
-			int people = scores.length;	// 
+			int people = scores.length;
 			int sum = 0;
-			int[] scorecount = new int[101]; // 0~100점까지 101개의 점수를 가리키는 배열
-			int myscore = scores[i][i];	// 자기 자신에게 부여한 점수
+			int[] scoreboard = new int[101]; // 0~100점까지 101개의 점수를 가리키는 점수판 배열
+			int myscore = scores[i][i]; // 자기 자신에게 부여한 점수
 			for (int j = 0; j < scores.length; j++) {
-				scorecount[scores[j][i]]++;
+				scoreboard[scores[j][i]]++;
 				sum += scores[j][i];
 			}
-			if (isMin(myscore, scorecount) || isMax(myscore, scorecount)) {
+			if (isOnlyMin(myscore, scoreboard) || isOnlyMax(myscore, scoreboard)) {
 				sum -= myscore;
 				people--;
 			}
@@ -31,39 +31,29 @@ public class Week02 {
 		}
 		return answer;
 	}
-	// 자기 자신이 부여한 점수가 최솟값인지 판단함
-	public static boolean isMin(int myscore, int[] scorecount) {
-		for (int i = 0; i < scorecount.length; i++) {
-			if (scorecount[i] > 0) {
-				if (scorecount[i] == 1 && myscore == i)
-					return true;
-				return false;
-			}
+	// 자기 자신에게 부여한 점수가 유일한 최솟값인지 판단하는 메소드
+	public static boolean isOnlyMin(int myscore, int[] scoreboard) {
+		for (int score = 0; score < scoreboard.length; score++) {
+			if (scoreboard[score] > 0)
+				return isOnlyValue(myscore, scoreboard[score], score) ? true : false;
 		}
 		return false;
 	}
-	// 자기 자신이 부여한 점수가 최댓값인지 판단함
-	public static boolean isMax(int myscore, int[] scorecount) {
-		for (int i = scorecount.length - 1; i >= 0; i--) {
-			if (scorecount[i] > 0) {
-				if (scorecount[i] == 1 && myscore == i)
-					return true;
-				return false;
-			}
+	// 자기 자신에게 부여한 점수가 유일한 최댓값인지 판단하는 메소드
+	public static boolean isOnlyMax(int myscore, int[] scoreboard) {
+		for (int score = scoreboard.length - 1; score >= 0; score--) {
+			if (scoreboard[score] > 0)
+				return isOnlyValue(myscore, scoreboard[score], score) ? true : false;
 		}
 		return false;
 	}
-	// 평균을 구하여 최종 학점을 부여함 
+	// 자기 자신에게 부여한 점수가 유일한 값인지 판단하는 메소드
+	public static boolean isOnlyValue(int myscore, int scoreboard, int score) {
+		return (scoreboard == 1 && myscore == score);
+	}
+	// 평균을 구하여 최종 학점을 부여하는 메소드
 	public static String credit(int average) {
-		if (average >= 90)
-			return "A";
-		if (average >= 80)
-			return "B";
-		if (average >= 70)
-			return "C";
-		if (average >= 50)
-			return "D";
-		return "F";
+		return (average >= 90) ? "A" : (average >= 80) ? "B" : (average >= 70) ? "C" : (average >= 50) ? "D" : "F";
 	}
 
 }
