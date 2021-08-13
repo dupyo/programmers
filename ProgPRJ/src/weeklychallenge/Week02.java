@@ -35,7 +35,7 @@ public class Week02 {
 	public static boolean isOnlyMin(int myscore, int[] scoreboard) {
 		for (int score = 0; score < scoreboard.length; score++) {
 			if (scoreboard[score] > 0)
-				return isOnlyValue(myscore, scoreboard[score], score) ? true : false;
+				return isOnlyValue(myscore, scoreboard[score], score);
 		}
 		return false;
 	}
@@ -43,7 +43,7 @@ public class Week02 {
 	public static boolean isOnlyMax(int myscore, int[] scoreboard) {
 		for (int score = scoreboard.length - 1; score >= 0; score--) {
 			if (scoreboard[score] > 0)
-				return isOnlyValue(myscore, scoreboard[score], score) ? true : false;
+				return isOnlyValue(myscore, scoreboard[score], score);
 		}
 		return false;
 	}
