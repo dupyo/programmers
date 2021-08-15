@@ -1,10 +1,5 @@
 package level1;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 public class Year2016 {
 
 	public static void main(String[] args) {
@@ -14,20 +9,15 @@ public class Year2016 {
 		System.out.println(solution(a, b));
 	}
 
-	// 2016년
 	public static String solution(int a, int b) {
-		String answer = "2016/" + a + "/" + b;
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd"); // 날짜 형식 지정
-		Calendar cal = Calendar.getInstance(); //
-
-		Date date;
-		try {
-			date = sdf.parse(answer);
-			cal.setTime(date);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return cal.getTime().toString().substring(0, 3).toUpperCase();
+		String[] week = { "FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU" };
+		int[] month = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		int total = 0;
+		for(int i = 0; i < a - 1; i++)
+			total += month[i];
+		
+		total += b - 1;
+		return week[total % 7];
 	}
 
 }
