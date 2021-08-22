@@ -14,29 +14,25 @@ public class Week03 {
 	}
 
 	public static int solution(int[][] game_board, int[][] table) {
-		// 1. 도형이 있는 위치에 이진법으로 연산한 값을 저장한다
+		// 1. 두 배열을 서로 다른 일차원 배열로 변환한다
 		int answer = -1;
-		int[] decimalbyGameboard = new int[game_board.length];
-		int[] decimalbyTable = new int[table.length];
-		for(int i = 0; i < game_board.length; i++) {
-			decimalbyGameboard[i] = Integer.parseInt(arrayToString(game_board[i]), 2);
-		}
-		for(int i = 0; i < table.length; i++) {
-			decimalbyTable[i] = Integer.parseInt(arrayToString(table[i]), 2);
-		}
-		System.out.println("game board " + Arrays.toString(decimalbyGameboard));
-		System.out.println("table " + Arrays.toString(decimalbyTable));
-		for(int i = 0; i < decimalbyTable.length; i++) {
-			System.out.println(Integer.toBinaryString(decimalbyGameboard[i] & decimalbyTable[i]));
-		}
+		int[] gameboardArray = new int[game_board.length * game_board.length];
+		int[] tableArray = new int[gameboardArray.length];
+		for(int i = 0; i < gameboardArray[i.length; i++)
+			gameboardArray[i] = game_board[i % game_board.length];
+		for(int i = 0; i < tableArray.length; i++)
+			tableArray[i] = table[i % table.length];
+		
+		System.out.println("game board " + Arrays.toString(gameboardArray));
+		System.out.println("table " + Arrays.toString(tableArray));
 		return answer;
 	}
 	
-	public static String arrayToString(int[] arr) {
-		String answer = "";
+	public static String array2String(int[] arr) {
+		String str = "";
 		for(int value : arr)
-			answer += value;
-		return answer;
+			str += value;
+		return str;
 	}
 
 }
