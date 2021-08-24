@@ -18,21 +18,16 @@ public class Week03 {
 		int answer = -1;
 		int[] gameboardArray = new int[game_board.length * game_board.length];
 		int[] tableArray = new int[gameboardArray.length];
-		for(int i = 0; i < gameboardArray[i.length; i++)
-			gameboardArray[i] = game_board[i % game_board.length];
-		for(int i = 0; i < tableArray.length; i++)
-			tableArray[i] = table[i % table.length];
+		for(int i = 0; i < gameboardArray.length; i++) {
+			for(int j = 0; j < tableArray.length; j++) {
+				gameboardArray[i] = game_board[i % game_board.length][j % table.length];
+				tableArray[i] = table[i % table.length][j % table.length];
+			}
+		}
 		
 		System.out.println("game board " + Arrays.toString(gameboardArray));
 		System.out.println("table " + Arrays.toString(tableArray));
 		return answer;
 	}
 	
-	public static String array2String(int[] arr) {
-		String str = "";
-		for(int value : arr)
-			str += value;
-		return str;
-	}
-
 }
