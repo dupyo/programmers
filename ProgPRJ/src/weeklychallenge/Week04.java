@@ -21,7 +21,7 @@ public class Week04 {
 				sum += (pointByRank(rank, languages[j]) * preference[j]);
 			
 			if(max <= sum) {
-				answer = (max == sum) ? (rank[0].compareTo(answer) < 0) ? rank[0] : answer : rank[0]; 
+				answer = (max == sum && rank[0].compareTo(answer) > 0) ? answer : rank[0]; 
 				max = sum;
 			}
 		}
