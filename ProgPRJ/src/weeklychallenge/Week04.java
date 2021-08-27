@@ -7,8 +7,8 @@ public class Week04 {
 		String[] table = { "SI JAVA JAVASCRIPT SQL PYTHON C#", "CONTENTS JAVASCRIPT JAVA PYTHON SQL C++",
 				"HARDWARE C C++ PYTHON JAVA JAVASCRIPT", "PORTAL JAVA JAVASCRIPT PYTHON KOTLIN PHP",
 				"GAME C++ C# JAVASCRIPT C JAVA" };
-		String[] languages = { "JAVA", "JAVASCRIPT" };
-		int[] preference = { 7, 5 };
+		String[] languages = { "PYTHON", "C++", "SQL" };
+		int[] preference = { 7, 5, 5 };
 		System.out.println(solution(table, languages, preference));
 	}
 	public static String solution(String[] table, String[] languages, int[] preference) {
