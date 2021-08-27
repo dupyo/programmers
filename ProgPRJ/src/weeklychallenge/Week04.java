@@ -19,7 +19,6 @@ public class Week04 {
 			int sum = 0;
 			for(int j = 0; j < languages.length; j++) 
 				sum += (pointByRank(rank, languages[j]) * preference[j]);
-			
 			if(max <= sum) {
 				answer = (max == sum && rank[0].compareTo(answer) > 0) ? answer : rank[0]; 
 				max = sum;
