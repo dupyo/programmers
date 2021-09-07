@@ -11,6 +11,18 @@ public class Week06 {
 
 	public static int[] solution(int[] weights, String[] head2head) {
 		int[] answer = {};
+		for(int i = 0; i < weights.length; i++) {
+			double winningPercent = 0;
+			int winAgainstHeavier = 0;
+			double winCount = 0;
+			for(int j = 0; j < weights.length; j++) {
+				if(head2head[i].charAt(j) == 'W') {
+					winCount++;
+					winAgainstHeavier += (weights[i] < weights[j]) ? 1 : 0;
+				}
+			}
+			winningPercent = winCount / (weights.length - 1);
+		}
 		return answer;
 	}
 
