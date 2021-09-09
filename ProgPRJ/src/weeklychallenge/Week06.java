@@ -22,6 +22,7 @@ public class Week06 {
 				}
 			}
 			winningPercent = winCount / (weights.length - 1);
+			System.out.println(winningPercent + ", " + winAgainstHeavier);
 		}
 		return answer;
 	}
