@@ -7,8 +7,8 @@ public class Week06 {
 
 	public static void main(String[] args) {
 		// 복서 정렬하기
-		int[] weights = { 50, 82, 75, 120 };
-		String[] head2head = { "NLWL", "WNLL", "LWNW", "WWLN" };
+		int[] weights = { 60,70,60 };
+		String[] head2head = { "NNN","NNN","NNN" };
 		System.out.println(Arrays.toString(solution(weights, head2head)));
 	}
 
@@ -21,16 +21,25 @@ public class Week06 {
 		for (int i = 0; i < weights.length; i++) {
 			int winAgainstHeavier = 0;
 			int winCount = 0;
-			for (int j = 0; j < weights.length; j++) {
-				if (head2head[i].charAt(j) == 'W') {
-					winCount++;
-					winAgainstHeavier += (weights[i] < weights[j]) ? 1 : 0;
+			float winningRate = 0f;
+			if (head2head[i].contains("W")) {
+				for (int j = 0; j < weights.length; j++) {
+					if (head2head[i].charAt(j) == 'W') {
+						winCount++;
+						winAgainstHeavier += (weights[i] < weights[j]) ? 1 : 0;
+					}
 				}
 			}
-			boxerInfos[i][0] = String.format("%03d", winCount) + " " + String.format("%03d", winAgainstHeavier) + " "
+			int match = head2head[i].replaceAll("N", "").length();
+			if (match == 0)
+				match = 1;
+			winningRate = (float) winCount / match;
+			boxerInfos[i][0] = String.format("%1.11f", winningRate) + " " + String.format("%03d", winAgainstHeavier) + " "
 					+ String.format("%03d", weights[i]);
 			boxerInfos[i][1] = String.format("%04d", i + 1);
+			System.out.println(boxerInfos[i][0] + ", " + boxerInfos[i][1]);
 		}
+		System.out.println("---------------");
 		// [승률] [자신보다 무거운 복서를 이긴 횟수] [자기 몸무게] 순으로 내림차순하고, [순번] 순으로 오름차순
 		Arrays.sort(boxerInfos, new Comparator<String[]>() {
 			@Override
@@ -44,6 +53,7 @@ public class Week06 {
 			}
 		});
 		for (int i = 0; i < weights.length; i++) {
+			System.out.println(boxerInfos[i][0] + ", " + boxerInfos[i][1]);
 			answer[i] = Integer.parseInt(boxerInfos[i][1]);
 		}
 
