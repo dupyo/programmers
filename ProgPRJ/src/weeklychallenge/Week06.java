@@ -19,25 +19,26 @@ public class Week06 {
 		int[] answer = new int[weights.length];
 		String[][] boxerInfos = new String[weights.length][2];
 		for (int i = 0; i < weights.length; i++) {
-			int winAgainstHeavier = 0;
+			int winHeavier = 0;
 			int winCount = 0;
-			float winningRate = 0f;
+			float winRate = 0f;
 			// 승리가 없다면 반복문을 실행하지 않음
 			if (head2head[i].contains("W")) {
 				for (int j = 0; j < weights.length; j++) {
 					if (head2head[i].charAt(j) == 'W') {
 						winCount++;
-						winAgainstHeavier += (weights[i] < weights[j]) ? 1 : 0;
+						winHeavier += (weights[i] < weights[j]) ? 1 : 0;
 					}
 				}
 			}
 			int match = head2head[i].replaceAll("N", "").length();
-			// 단 한번도 경기한 적이 없는 선수라면 승률을 계산할 수 없음( 0/0의 값을 구할 수 없기 때문에 )
+			// 단 한번도 경기한 적이 없는 선수라면 경기 수 +1 처리( 0/0의 값을 구할 수 없기 때문에 )
 			if (match == 0)
-				match = 1;
+				match++;
 			
-			winningRate = (float) winCount / match;
-			boxerInfos[i][0] = String.format("%1.11f", winningRate) + " " + String.format("%03d", winAgainstHeavier) + " "
+			winRate = (float) winCount / match;
+			boxerInfos[i][0] = String.format("%1.11f", winRate) + " " 
+					+ String.format("%03d", winHeavier) + " "
 					+ String.format("%03d", weights[i]);
 			boxerInfos[i][1] = String.format("%04d", i + 1);
 		}
@@ -55,7 +56,6 @@ public class Week06 {
 		});
 		for (int i = 0; i < weights.length; i++) 
 			answer[i] = Integer.parseInt(boxerInfos[i][1]);
-		
 
 		return answer;
 	}
