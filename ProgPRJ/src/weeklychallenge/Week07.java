@@ -8,7 +8,7 @@ public class Week07 {
 		// 입실 퇴실
 		int[] enter = { 3, 2, 1 };
 		int[] leave = { 2, 1, 3 };
-		System.out.println(Arrays.toString(solution(enter, leave)));
+		System.out.println(Arrays.toString(solution(enter, leave))); // result : [1,1,2]
 	}
 
 	public static int[] solution(int[] enter, int[] leave) {
