@@ -17,7 +17,6 @@ public class HarshadNumber {
 //		}
 		String[] str = String.valueOf(x).split(""); // 또는 split("0|")
 		for(String num : str) {
-			System.out.println(num);
 			sum += Integer.parseInt(num);
 		}
 		return x % sum == 0;
