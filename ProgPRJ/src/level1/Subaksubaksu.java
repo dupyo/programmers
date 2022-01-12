@@ -10,8 +10,8 @@ public class Subaksubaksu {
 
 	public static String solution(int n) {
 		String answer = "";
-		int remainder = (n % 2);
-		for(int i = 0; i < (n + remainder) / 2; i++) {
+		int len = (n + (n % 2)) / 2;
+		for(int i = 0; i < len; i++) {
 			answer += "수박";
 		}
 		return answer.substring(0, n);
