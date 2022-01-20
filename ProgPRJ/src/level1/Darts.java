@@ -31,10 +31,8 @@ public class Darts {
 			range++;
 		}
 		for (int j = 0; j < 3; j++) {
-			System.out.println(arr[j]);
 			answer += arr[j];
 		}
-		System.out.println("----");
 		return answer;
 	}
 
