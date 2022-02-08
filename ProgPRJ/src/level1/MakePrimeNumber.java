@@ -13,8 +13,7 @@ public class MakePrimeNumber {
 		for (int i = 0; i < nums.length; i++) {
 			for (int j = i + 1; j < nums.length; j++) {
 				for (int k = j + 1; k < nums.length; k++) {
-					int sum = nums[i] + nums[j] + nums[k];
-					answer += (isPrimeNumber(sum)) ? 1 : 0;
+					answer += (isPrimeNumber(nums[i] + nums[j] + nums[k])) ? 1 : 0;
 				}
 			}
 		}
