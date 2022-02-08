@@ -13,11 +13,10 @@ public class SecretMap {
 	public static String[] solution(int n, int[] arr1, int[] arr2) {
 		String[] answer = new String[n];
 		for (int i = 0; i < n; i++) {
-			int targetBit = 1;
 			int or = arr1[i] | arr2[i];
 			answer[i] = "";
 			for (int j = 0; j < n; j++) {
-				answer[i] = ((or & (targetBit << j)) > 0 ? "#" : " ") + answer[i];
+				answer[i] = ((or & (1 << j)) > 0 ? "#" : " ") + answer[i];
 			}
 		}
 		return answer;
