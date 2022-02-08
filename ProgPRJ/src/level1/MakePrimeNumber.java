@@ -20,7 +20,7 @@ public class MakePrimeNumber {
 		return answer;
 	}
 
-	public static boolean isPrimeNumber(int num) {
+	public static boolean isPrimeNumber(int num) { // 소수 판별
 		if (num % 2 == 0)
 			return false;
 		for (int j = 3; j <= Math.sqrt(num); j += 2) {
