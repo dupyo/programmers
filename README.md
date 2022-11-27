@@ -1,4 +1,4 @@
-# programmers 문제 풀이
+# programmers 문제
 
 - [프로그래머스](https://school.programmers.co.kr/learn/challenges?page=1)
 
